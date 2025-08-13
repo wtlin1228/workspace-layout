@@ -23,11 +23,13 @@ export const LeftPanel: React.FC<PropsWithChildren> = (props) => {
       <Paper
         sx={{
           position: "absolute",
-          left: isSidePanelOpen ? 0 : -370,
+          left: 0,
+          display: isSidePanelOpen ? "block" : "none",
           top: 0,
           borderRadius: 0,
           height: "100%",
           width: 350,
+          padding: 1,
         }}
         elevation={1}
       >

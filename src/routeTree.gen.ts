@@ -13,6 +13,15 @@ import { Route as PikminRouteImport } from './routes/pikmin'
 import { Route as PataponRouteImport } from './routes/patapon'
 import { Route as KirbyRouteImport } from './routes/kirby'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PikminPowerRouteImport } from './routes/pikmin.power'
+import { Route as PikminFriendsRouteImport } from './routes/pikmin.friends'
+import { Route as PikminCafeRouteImport } from './routes/pikmin.cafe'
+import { Route as PataponPowerRouteImport } from './routes/patapon.power'
+import { Route as PataponFriendsRouteImport } from './routes/patapon.friends'
+import { Route as PataponCafeRouteImport } from './routes/patapon.cafe'
+import { Route as KirbyPowerRouteImport } from './routes/kirby.power'
+import { Route as KirbyFriendsRouteImport } from './routes/kirby.friends'
+import { Route as KirbyCafeRouteImport } from './routes/kirby.cafe'
 
 const PikminRoute = PikminRouteImport.update({
   id: '/pikmin',
@@ -34,39 +43,151 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PikminPowerRoute = PikminPowerRouteImport.update({
+  id: '/power',
+  path: '/power',
+  getParentRoute: () => PikminRoute,
+} as any)
+const PikminFriendsRoute = PikminFriendsRouteImport.update({
+  id: '/friends',
+  path: '/friends',
+  getParentRoute: () => PikminRoute,
+} as any)
+const PikminCafeRoute = PikminCafeRouteImport.update({
+  id: '/cafe',
+  path: '/cafe',
+  getParentRoute: () => PikminRoute,
+} as any)
+const PataponPowerRoute = PataponPowerRouteImport.update({
+  id: '/power',
+  path: '/power',
+  getParentRoute: () => PataponRoute,
+} as any)
+const PataponFriendsRoute = PataponFriendsRouteImport.update({
+  id: '/friends',
+  path: '/friends',
+  getParentRoute: () => PataponRoute,
+} as any)
+const PataponCafeRoute = PataponCafeRouteImport.update({
+  id: '/cafe',
+  path: '/cafe',
+  getParentRoute: () => PataponRoute,
+} as any)
+const KirbyPowerRoute = KirbyPowerRouteImport.update({
+  id: '/power',
+  path: '/power',
+  getParentRoute: () => KirbyRoute,
+} as any)
+const KirbyFriendsRoute = KirbyFriendsRouteImport.update({
+  id: '/friends',
+  path: '/friends',
+  getParentRoute: () => KirbyRoute,
+} as any)
+const KirbyCafeRoute = KirbyCafeRouteImport.update({
+  id: '/cafe',
+  path: '/cafe',
+  getParentRoute: () => KirbyRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/kirby': typeof KirbyRoute
-  '/patapon': typeof PataponRoute
-  '/pikmin': typeof PikminRoute
+  '/kirby': typeof KirbyRouteWithChildren
+  '/patapon': typeof PataponRouteWithChildren
+  '/pikmin': typeof PikminRouteWithChildren
+  '/kirby/cafe': typeof KirbyCafeRoute
+  '/kirby/friends': typeof KirbyFriendsRoute
+  '/kirby/power': typeof KirbyPowerRoute
+  '/patapon/cafe': typeof PataponCafeRoute
+  '/patapon/friends': typeof PataponFriendsRoute
+  '/patapon/power': typeof PataponPowerRoute
+  '/pikmin/cafe': typeof PikminCafeRoute
+  '/pikmin/friends': typeof PikminFriendsRoute
+  '/pikmin/power': typeof PikminPowerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/kirby': typeof KirbyRoute
-  '/patapon': typeof PataponRoute
-  '/pikmin': typeof PikminRoute
+  '/kirby': typeof KirbyRouteWithChildren
+  '/patapon': typeof PataponRouteWithChildren
+  '/pikmin': typeof PikminRouteWithChildren
+  '/kirby/cafe': typeof KirbyCafeRoute
+  '/kirby/friends': typeof KirbyFriendsRoute
+  '/kirby/power': typeof KirbyPowerRoute
+  '/patapon/cafe': typeof PataponCafeRoute
+  '/patapon/friends': typeof PataponFriendsRoute
+  '/patapon/power': typeof PataponPowerRoute
+  '/pikmin/cafe': typeof PikminCafeRoute
+  '/pikmin/friends': typeof PikminFriendsRoute
+  '/pikmin/power': typeof PikminPowerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/kirby': typeof KirbyRoute
-  '/patapon': typeof PataponRoute
-  '/pikmin': typeof PikminRoute
+  '/kirby': typeof KirbyRouteWithChildren
+  '/patapon': typeof PataponRouteWithChildren
+  '/pikmin': typeof PikminRouteWithChildren
+  '/kirby/cafe': typeof KirbyCafeRoute
+  '/kirby/friends': typeof KirbyFriendsRoute
+  '/kirby/power': typeof KirbyPowerRoute
+  '/patapon/cafe': typeof PataponCafeRoute
+  '/patapon/friends': typeof PataponFriendsRoute
+  '/patapon/power': typeof PataponPowerRoute
+  '/pikmin/cafe': typeof PikminCafeRoute
+  '/pikmin/friends': typeof PikminFriendsRoute
+  '/pikmin/power': typeof PikminPowerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/kirby' | '/patapon' | '/pikmin'
+  fullPaths:
+    | '/'
+    | '/kirby'
+    | '/patapon'
+    | '/pikmin'
+    | '/kirby/cafe'
+    | '/kirby/friends'
+    | '/kirby/power'
+    | '/patapon/cafe'
+    | '/patapon/friends'
+    | '/patapon/power'
+    | '/pikmin/cafe'
+    | '/pikmin/friends'
+    | '/pikmin/power'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/kirby' | '/patapon' | '/pikmin'
-  id: '__root__' | '/' | '/kirby' | '/patapon' | '/pikmin'
+  to:
+    | '/'
+    | '/kirby'
+    | '/patapon'
+    | '/pikmin'
+    | '/kirby/cafe'
+    | '/kirby/friends'
+    | '/kirby/power'
+    | '/patapon/cafe'
+    | '/patapon/friends'
+    | '/patapon/power'
+    | '/pikmin/cafe'
+    | '/pikmin/friends'
+    | '/pikmin/power'
+  id:
+    | '__root__'
+    | '/'
+    | '/kirby'
+    | '/patapon'
+    | '/pikmin'
+    | '/kirby/cafe'
+    | '/kirby/friends'
+    | '/kirby/power'
+    | '/patapon/cafe'
+    | '/patapon/friends'
+    | '/patapon/power'
+    | '/pikmin/cafe'
+    | '/pikmin/friends'
+    | '/pikmin/power'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  KirbyRoute: typeof KirbyRoute
-  PataponRoute: typeof PataponRoute
-  PikminRoute: typeof PikminRoute
+  KirbyRoute: typeof KirbyRouteWithChildren
+  PataponRoute: typeof PataponRouteWithChildren
+  PikminRoute: typeof PikminRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -99,14 +220,121 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pikmin/power': {
+      id: '/pikmin/power'
+      path: '/power'
+      fullPath: '/pikmin/power'
+      preLoaderRoute: typeof PikminPowerRouteImport
+      parentRoute: typeof PikminRoute
+    }
+    '/pikmin/friends': {
+      id: '/pikmin/friends'
+      path: '/friends'
+      fullPath: '/pikmin/friends'
+      preLoaderRoute: typeof PikminFriendsRouteImport
+      parentRoute: typeof PikminRoute
+    }
+    '/pikmin/cafe': {
+      id: '/pikmin/cafe'
+      path: '/cafe'
+      fullPath: '/pikmin/cafe'
+      preLoaderRoute: typeof PikminCafeRouteImport
+      parentRoute: typeof PikminRoute
+    }
+    '/patapon/power': {
+      id: '/patapon/power'
+      path: '/power'
+      fullPath: '/patapon/power'
+      preLoaderRoute: typeof PataponPowerRouteImport
+      parentRoute: typeof PataponRoute
+    }
+    '/patapon/friends': {
+      id: '/patapon/friends'
+      path: '/friends'
+      fullPath: '/patapon/friends'
+      preLoaderRoute: typeof PataponFriendsRouteImport
+      parentRoute: typeof PataponRoute
+    }
+    '/patapon/cafe': {
+      id: '/patapon/cafe'
+      path: '/cafe'
+      fullPath: '/patapon/cafe'
+      preLoaderRoute: typeof PataponCafeRouteImport
+      parentRoute: typeof PataponRoute
+    }
+    '/kirby/power': {
+      id: '/kirby/power'
+      path: '/power'
+      fullPath: '/kirby/power'
+      preLoaderRoute: typeof KirbyPowerRouteImport
+      parentRoute: typeof KirbyRoute
+    }
+    '/kirby/friends': {
+      id: '/kirby/friends'
+      path: '/friends'
+      fullPath: '/kirby/friends'
+      preLoaderRoute: typeof KirbyFriendsRouteImport
+      parentRoute: typeof KirbyRoute
+    }
+    '/kirby/cafe': {
+      id: '/kirby/cafe'
+      path: '/cafe'
+      fullPath: '/kirby/cafe'
+      preLoaderRoute: typeof KirbyCafeRouteImport
+      parentRoute: typeof KirbyRoute
+    }
   }
 }
 
+interface KirbyRouteChildren {
+  KirbyCafeRoute: typeof KirbyCafeRoute
+  KirbyFriendsRoute: typeof KirbyFriendsRoute
+  KirbyPowerRoute: typeof KirbyPowerRoute
+}
+
+const KirbyRouteChildren: KirbyRouteChildren = {
+  KirbyCafeRoute: KirbyCafeRoute,
+  KirbyFriendsRoute: KirbyFriendsRoute,
+  KirbyPowerRoute: KirbyPowerRoute,
+}
+
+const KirbyRouteWithChildren = KirbyRoute._addFileChildren(KirbyRouteChildren)
+
+interface PataponRouteChildren {
+  PataponCafeRoute: typeof PataponCafeRoute
+  PataponFriendsRoute: typeof PataponFriendsRoute
+  PataponPowerRoute: typeof PataponPowerRoute
+}
+
+const PataponRouteChildren: PataponRouteChildren = {
+  PataponCafeRoute: PataponCafeRoute,
+  PataponFriendsRoute: PataponFriendsRoute,
+  PataponPowerRoute: PataponPowerRoute,
+}
+
+const PataponRouteWithChildren =
+  PataponRoute._addFileChildren(PataponRouteChildren)
+
+interface PikminRouteChildren {
+  PikminCafeRoute: typeof PikminCafeRoute
+  PikminFriendsRoute: typeof PikminFriendsRoute
+  PikminPowerRoute: typeof PikminPowerRoute
+}
+
+const PikminRouteChildren: PikminRouteChildren = {
+  PikminCafeRoute: PikminCafeRoute,
+  PikminFriendsRoute: PikminFriendsRoute,
+  PikminPowerRoute: PikminPowerRoute,
+}
+
+const PikminRouteWithChildren =
+  PikminRoute._addFileChildren(PikminRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  KirbyRoute: KirbyRoute,
-  PataponRoute: PataponRoute,
-  PikminRoute: PikminRoute,
+  KirbyRoute: KirbyRouteWithChildren,
+  PataponRoute: PataponRouteWithChildren,
+  PikminRoute: PikminRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

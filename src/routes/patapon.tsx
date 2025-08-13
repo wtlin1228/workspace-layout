@@ -1,6 +1,10 @@
 import Box from "@mui/material/Box";
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 import { LeftPanel } from "../components/SidePanel";
+import ListItem from "@mui/material/ListItem";
+import Paper from "@mui/material/Paper";
+import Stack from "@mui/material/Stack";
+import { CustomLink } from "../components/CustomLink";
 
 export const Route = createFileRoute("/patapon")({
   component: Patapon,
@@ -17,7 +21,25 @@ function Patapon() {
         position: "relative",
       }}
     >
-      <LeftPanel>Left Panel</LeftPanel>
+      <LeftPanel>
+        <Stack spacing={1} direction="column">
+          <Paper elevation={2}>
+            <ListItem component="div">
+              <CustomLink to="/patapon/friends">Friends</CustomLink>
+            </ListItem>
+          </Paper>
+          <Paper elevation={2}>
+            <ListItem component="div">
+              <CustomLink to="/patapon/power">Power</CustomLink>
+            </ListItem>
+          </Paper>
+          <Paper elevation={2}>
+            <ListItem component="div">
+              <CustomLink to="/patapon/cafe">Cafe</CustomLink>
+            </ListItem>
+          </Paper>
+        </Stack>
+      </LeftPanel>
       <Outlet />
     </Box>
   );
