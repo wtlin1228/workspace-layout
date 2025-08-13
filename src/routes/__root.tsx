@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import { ResponsiveAppBar } from "../components/Appbar";
 import { BasicBreadcrumbs } from "../components/Breadcrumbs";
 import { LeftNavigation } from "../components/LeftNav";
+import { SidePanelProvider } from "../components/SidePanel";
 
 export const Route = createRootRoute({
   component: () => (
@@ -13,7 +14,9 @@ export const Route = createRootRoute({
       <Stack direction="row" sx={{ minHeight: "calc(100vh - 57px - 68.5px)" }}>
         <LeftNavigation />
         <Box sx={{ borderLeft: "1px solid grey", pl: 1, width: "100%" }}>
-          <Outlet />
+          <SidePanelProvider>
+            <Outlet />
+          </SidePanelProvider>
         </Box>
       </Stack>
     </>

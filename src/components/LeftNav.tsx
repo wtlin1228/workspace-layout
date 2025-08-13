@@ -15,7 +15,14 @@ export function LeftNavigation() {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ px: 1, py: 2 }}>
+    <Box
+      sx={{
+        px: 1,
+        py: 2,
+        zIndex: 9999, // to be on top of left panel
+        bgcolor: "#121212",
+      }}
+    >
       <BottomNavigation
         sx={{
           height: "auto",
