@@ -1,13 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
+import { muiTheme } from "./theme";
 
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
@@ -21,12 +17,6 @@ declare module "@tanstack/react-router" {
     router: typeof router;
   }
 }
-
-const muiTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
