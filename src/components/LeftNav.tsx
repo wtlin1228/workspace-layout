@@ -19,7 +19,7 @@ export function LeftNavigation() {
       sx={{
         px: 1,
         py: 2,
-        zIndex: 9999, // to be on top of left panel
+        zIndex: 1299, // to be on top of left panel
         bgcolor: "#121212",
       }}
     >
