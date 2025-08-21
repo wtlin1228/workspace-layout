@@ -28,6 +28,11 @@ export function SidePanelCardDemo() {
         }
         title="Tom & Jerry"
         subheader="Tom and associated Jerrys"
+        slotProps={{
+          title: {
+            variant: "body1",
+          },
+        }}
       />
       <Divider />
       <CardContent>
