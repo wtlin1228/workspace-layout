@@ -4,6 +4,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
+import DialogContentText from "@mui/material/DialogContentText";
 
 export const DialogDemo = () => {
   const [open, setOpen] = React.useState(false);
@@ -24,10 +25,12 @@ export const DialogDemo = () => {
       <Dialog onClose={handleClose} open={open} maxWidth="sm">
         <DialogTitle>Dialog title</DialogTitle>
         <DialogContent>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum
-          accusamus natus ipsum exercitationem iure. Voluptas minus a, iure ipsa
-          ab eos. Reiciendis ea animi id cum, ipsam repudiandae molestias
-          consequuntur!
+          <DialogContentText>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum
+            accusamus natus ipsum exercitationem iure. Voluptas minus a, iure
+            ipsa ab eos. Reiciendis ea animi id cum, ipsam repudiandae molestias
+            consequuntur!
+          </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Confirm</Button>
