@@ -1,6 +1,5 @@
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
-import * as React from "react";
 
 export const SwitchDemo = () => {
   return (
