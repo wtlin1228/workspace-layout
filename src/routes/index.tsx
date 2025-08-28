@@ -10,9 +10,13 @@ import { IconButtonDemo } from "../components/demo/IconButton";
 import { ListDemo } from "../components/demo/List";
 import { RadioDemo } from "../components/demo/Radio";
 import { SidePanelHeaderDemo } from "../components/demo/SidePanel";
-import { SidePanelCardDemo } from "../components/demo/SidePanelCard";
+import {
+  SidePanelCardDemo,
+  SidePanelCardEmptyContentDemo,
+} from "../components/demo/SidePanelCard";
 import { StepperDemo } from "../components/demo/Stepper";
 import { SwitchDemo } from "../components/demo/Switch";
+import Box from "@mui/material/Box";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -60,11 +64,26 @@ function Index() {
           </Grid>
           <Grid size={6}>
             <Stack sx={{ alignItems: "center" }}>
-              <SidePanelCardDemo />
+              <Box sx={{ width: 320 }}>
+                <SidePanelCardDemo />
+              </Box>
             </Stack>
           </Grid>
           <Grid size={6}>
             <CodeBlock codeString={SidePanelCardDemo.codeString} />
+          </Grid>
+          <Grid size={12}>
+            <Divider />
+          </Grid>
+          <Grid size={6}>
+            <Stack sx={{ alignItems: "center" }}>
+              <Box sx={{ width: 320 }}>
+                <SidePanelCardEmptyContentDemo />
+              </Box>
+            </Stack>
+          </Grid>
+          <Grid size={6}>
+            <CodeBlock codeString={SidePanelCardEmptyContentDemo.codeString} />
           </Grid>
           <Grid size={12}>
             <Divider />

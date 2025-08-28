@@ -17,6 +17,7 @@ import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
 import { SidePanelCardListItemIcon } from "./List";
+import type { ReactNode } from "react";
 
 const StyledCard = styled(Card)({
   borderRadius: "10px",
@@ -60,7 +61,7 @@ const SidePanelCardContent = (props: CardContentProps) => {
 
 export function SidePanelCardDemo() {
   return (
-    <SidePanelCard elevation={12}>
+    <SidePanelCard elevation={6}>
       <SidePanelCardHeader
         avatar={
           <PestControlRodentIcon
@@ -157,10 +158,47 @@ import {
 </SidePanelCard>
 `;
 
-export function SidePanelCardEmptyDemo() {
+const StyledStack = styled(Stack)(({ theme }) => ({
+  border: `1px dashed ${theme.palette.background.border}`,
+  borderRadius: "6px",
+  alignItems: "center",
+  paddingBlock: theme.spacing(4),
+  paddingInline: theme.spacing(5),
+  minHeight: 144,
+}));
+
+const SidePanelCardEmptyContent = (props: {
+  title: string | ReactNode;
+  description: string | ReactNode;
+  actions?: ReactNode;
+}) => {
   return (
-    <Card sx={{ borderRadius: "10px" }} elevation={12}>
-      <CardHeader
+    <SidePanelCardContent>
+      <StyledStack>
+        {typeof props.title === "string" ? (
+          <Typography>{props.title}</Typography>
+        ) : (
+          props.title
+        )}
+        <Box sx={{ mt: 1 }}>
+          {typeof props.description === "string" ? (
+            <Typography color="textDisabled" sx={{ textAlign: "center" }}>
+              {props.description}
+            </Typography>
+          ) : (
+            props.description
+          )}
+        </Box>
+        {props.actions && <Box sx={{ mt: 2 }}>{props.actions}</Box>}
+      </StyledStack>
+    </SidePanelCardContent>
+  );
+};
+
+export function SidePanelCardEmptyContent1Demo() {
+  return (
+    <SidePanelCard elevation={6}>
+      <SidePanelCardHeader
         avatar={
           <PestControlRodentIcon
             sx={(theme) => ({ color: theme.palette.grey[300] })}
@@ -173,37 +211,71 @@ export function SidePanelCardEmptyDemo() {
         }
         title="Tom & Jerry"
         subheader="Tom and associated Jerrys"
-        slotProps={{
-          title: {
-            variant: "body1",
-          },
-        }}
       />
-      <CardContent>
-        <Stack
-          sx={(theme) => ({
-            border: `1px dashed ${theme.palette.background.border}`,
-            borderRadius: "6px",
-            alignItems: "center",
-            px: 5,
-            py: 1,
-          })}
-        >
-          <Typography>Title</Typography>
-          <Typography sx={{ mt: 0.75 }}>
-            Please make sure to add location in{" "}
-          </Typography>
-          <Box sx={{ mt: 1.5 }}>
-            <Button
-              sx={(theme) => ({
-                color: theme.palette.primary.light,
-              })}
-            >
-              Go to action
-            </Button>
-          </Box>
-        </Stack>
-      </CardContent>
-    </Card>
+      <SidePanelCardEmptyContent
+        title="No trap"
+        description="Place a new mouse trap"
+      />
+    </SidePanelCard>
   );
 }
+
+export function SidePanelCardEmptyContent2Demo() {
+  return (
+    <SidePanelCard elevation={6}>
+      <SidePanelCardHeader
+        avatar={
+          <PestControlRodentIcon
+            sx={(theme) => ({ color: theme.palette.grey[300] })}
+          />
+        }
+        action={
+          <IconButton aria-label="add" color="primary">
+            <AddIcon />
+          </IconButton>
+        }
+        title="Tom & Jerry"
+        subheader="Tom and associated Jerrys"
+      />
+      <SidePanelCardEmptyContent
+        title="No trap"
+        description="Place a new mouse trap"
+        actions={<Button>Buy a trap</Button>}
+      />
+    </SidePanelCard>
+  );
+}
+
+export const SidePanelCardEmptyContentDemo = () => {
+  return (
+    <Stack spacing={2}>
+      <SidePanelCardEmptyContent1Demo />
+      <SidePanelCardEmptyContent2Demo />
+    </Stack>
+  );
+};
+
+SidePanelCardEmptyContentDemo.codeString = `
+import { 
+  SidePanelCard, 
+  SidePanelCardHeader,
+  SidePanelCardEmptyContent,
+} from "components/feature/workpace";
+
+<SidePanelCard>
+  <SidePanelCardHeader { /* ... */ } />
+  <SidePanelCardEmptyContent 
+    title="No trap"
+    description="Place a new mouse trap"
+  />
+</SidePanelCard>
+
+<SidePanelCard>
+  <SidePanelCardHeader { /* ... */ } />
+  <SidePanelCardEmptyContent 
+    title="No trap"
+    description="Place a new mouse trap"
+    actions={<Button>Buy a trap</Button>}
+  />
+</SidePanelCard>  
+`;
