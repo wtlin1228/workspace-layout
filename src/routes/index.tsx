@@ -8,8 +8,10 @@ import { CodeBlock } from "../components/CodeBlock";
 import { DialogDemo } from "../components/demo/Dialog";
 import { IconButtonDemo } from "../components/demo/IconButton";
 import { ListDemo } from "../components/demo/List";
+import { RadioDemo } from "../components/demo/Radio";
 import { SidePanelCardDemo } from "../components/demo/SidePanelCard";
 import { StepperDemo } from "../components/demo/Stepper";
+import { SwitchDemo } from "../components/demo/Switch";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -73,6 +75,28 @@ function Index() {
           </Grid>
           <Grid size={6}>
             <CodeBlock codeString={ListDemo.codeString} />
+          </Grid>
+          <Grid size={12}>
+            <Divider />
+          </Grid>
+          <Grid size={6}>
+            <Stack sx={{ alignItems: "center" }}>
+              <SwitchDemo />
+            </Stack>
+          </Grid>
+          <Grid size={6}>
+            <CodeBlock codeString={SwitchDemo.codeString} />
+          </Grid>
+          <Grid size={12}>
+            <Divider />
+          </Grid>
+          <Grid size={6}>
+            <Stack sx={{ alignItems: "center" }}>
+              <RadioDemo />
+            </Stack>
+          </Grid>
+          <Grid size={6}>
+            <CodeBlock codeString={RadioDemo.codeString} />
           </Grid>
           <Grid size={12}>
             <Divider />
