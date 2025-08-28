@@ -1,6 +1,6 @@
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardContent from "@mui/material/CardContent";
+import Card, { type CardProps } from "@mui/material/Card";
+import CardHeader, { type CardHeaderProps } from "@mui/material/CardHeader";
+import CardContent, { type CardContentProps } from "@mui/material/CardContent";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
 import PestControlRodentIcon from "@mui/icons-material/PestControlRodent";
@@ -15,31 +15,69 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import { styled } from "@mui/material/styles";
+
+const StyledCard = styled(Card)({
+  borderRadius: "10px",
+});
+
+const SidePanelCard = (props: CardProps) => {
+  return <StyledCard {...props} />;
+};
+
+const StyledCardHeader = styled(CardHeader)(({ theme }) => ({
+  padding: theme.spacing(1),
+}));
+
+const SidePanelCardHeader = (props: CardHeaderProps) => {
+  return (
+    <StyledCardHeader
+      slotProps={{
+        title: {
+          variant: "body1",
+        },
+        subheader: {
+          variant: "body2",
+        },
+      }}
+      {...props}
+    />
+  );
+};
+
+const StyledCardContent = styled(CardContent)(({ theme }) => ({
+  padding: theme.spacing(1),
+
+  "&:last-child": {
+    paddingBottom: theme.spacing(1),
+  },
+}));
+
+const SidePanelCardContent = (props: CardContentProps) => {
+  return <StyledCardContent {...props} />;
+};
 
 export function SidePanelCardDemo() {
   return (
-    <Card sx={{ borderRadius: "10px" }} elevation={12}>
-      <CardHeader
+    <SidePanelCard elevation={12}>
+      <SidePanelCardHeader
         avatar={
           <PestControlRodentIcon
             sx={(theme) => ({ color: theme.palette.grey[300] })}
           />
         }
         action={
-          <IconButton aria-label="add" color="primary">
-            <AddIcon />
-          </IconButton>
+          <div>
+            <IconButton aria-label="add" color="primary">
+              <AddIcon />
+            </IconButton>
+          </div>
         }
         title="Tom & Jerry"
         subheader="Tom and associated Jerrys"
-        slotProps={{
-          title: {
-            variant: "body1",
-          },
-        }}
       />
       <Divider />
-      <CardContent>
+      <SidePanelCardContent>
         <List>
           <ListItem>
             <ListItemIcon>
@@ -60,9 +98,9 @@ export function SidePanelCardDemo() {
             />
           </ListItem>
         </List>
-
-        <Divider />
-
+      </SidePanelCardContent>
+      <Divider />
+      <SidePanelCardContent>
         <List>
           <ListItem>
             <ListItemIcon>
@@ -87,10 +125,29 @@ export function SidePanelCardDemo() {
             />
           </ListItem>
         </List>
-      </CardContent>
-    </Card>
+      </SidePanelCardContent>
+    </SidePanelCard>
   );
 }
+
+SidePanelCardDemo.codeString = `
+<SidePanelCard>
+  <SidePanelCardHeader
+    avatar={ /* ... */ }
+    title="Tom & Jerry"
+    subheader="Tom and associated Jerrys"
+    action={ /* ... */ }
+  />
+  <Divider />
+  <SidePanelCardContent>
+    <List>{ /* ... */ }</List>
+  </SidePanelCardContent>
+  <Divider />
+  <SidePanelCardContent>
+    <List>{ /* ... */ }</List>
+  </SidePanelCardContent>
+</SidePanelCard>
+`;
 
 export function SidePanelCardEmptyDemo() {
   return (

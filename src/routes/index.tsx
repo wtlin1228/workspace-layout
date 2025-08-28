@@ -59,12 +59,20 @@ function Index() {
           <Grid size={12}>
             <Divider />
           </Grid>
+
+          <Grid size={6}>
+            <Stack sx={{ alignItems: "center" }}>
+              <SidePanelCardDemo />
+            </Stack>
+          </Grid>
+          <Grid size={6}>
+            <CodeBlock codeString={SidePanelCardDemo.codeString} />
+          </Grid>
+          <Grid size={12}>
+            <Divider />
+          </Grid>
         </Grid>
 
-        <Box sx={{ width: 560 }}></Box>
-        <Box sx={{ width: 320 }}>
-          <SidePanelCardDemo />
-        </Box>
         <Box sx={{ width: 320 }}>
           <SidePanelCardEmptyDemo />
         </Box>
