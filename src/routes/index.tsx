@@ -9,6 +9,7 @@ import { DialogDemo } from "../components/demo/Dialog";
 import { IconButtonDemo } from "../components/demo/IconButton";
 import { ListDemo } from "../components/demo/List";
 import { RadioDemo } from "../components/demo/Radio";
+import { SidePanelHeaderDemo } from "../components/demo/SidePanel";
 import { SidePanelCardDemo } from "../components/demo/SidePanelCard";
 import { StepperDemo } from "../components/demo/Stepper";
 import { SwitchDemo } from "../components/demo/Switch";
@@ -97,6 +98,17 @@ function Index() {
           </Grid>
           <Grid size={6}>
             <CodeBlock codeString={RadioDemo.codeString} />
+          </Grid>
+          <Grid size={12}>
+            <Divider />
+          </Grid>
+          <Grid size={6}>
+            <Stack sx={{ alignItems: "center" }}>
+              <SidePanelHeaderDemo />
+            </Stack>
+          </Grid>
+          <Grid size={6}>
+            <CodeBlock codeString={SidePanelHeaderDemo.codeString} />
           </Grid>
           <Grid size={12}>
             <Divider />
