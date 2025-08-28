@@ -131,6 +131,13 @@ export function SidePanelCardDemo() {
 }
 
 SidePanelCardDemo.codeString = `
+import Divider from "@mui/material/Divider";
+import { 
+  SidePanelCard, 
+  SidePanelCardHeader,
+  SidePanelCardContent,
+} from "components/feature/workpace";
+
 <SidePanelCard>
   <SidePanelCardHeader
     avatar={ /* ... */ }

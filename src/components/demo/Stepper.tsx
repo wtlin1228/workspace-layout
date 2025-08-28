@@ -88,7 +88,7 @@ export function StepperDemo() {
 StepperDemo.codeString = `
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
-import { WorkspaceStepLabel } from "components/feature/workpace"
+import { WorkspaceStepLabel } from "components/feature/workpace";
 
 const steps = ["Step1", "Step2", "Step3"];
 

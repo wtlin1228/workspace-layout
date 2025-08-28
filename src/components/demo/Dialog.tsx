@@ -1,10 +1,28 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
+import Dialog, { type DialogProps } from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogActions from "@mui/material/DialogActions";
+
+const WorkspaceDialog = (props: DialogProps) => {
+  const isMd = props.maxWidth === "md";
+
+  return (
+    <Dialog
+      slotProps={{
+        paper: {
+          sx: {
+            py: 2,
+            maxWidth: isMd ? 800 : undefined,
+          },
+        },
+      }}
+      {...props}
+    />
+  );
+};
 
 export const DialogDemo = () => {
   const [open, setOpen] = React.useState(false);
@@ -22,7 +40,7 @@ export const DialogDemo = () => {
       <Button variant="outlined" onClick={handleClickOpen}>
         Open simple dialog
       </Button>
-      <Dialog onClose={handleClose} open={open} maxWidth="sm">
+      <WorkspaceDialog onClose={handleClose} open={open} maxWidth="md">
         <DialogTitle>Dialog title</DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -35,21 +53,21 @@ export const DialogDemo = () => {
         <DialogActions>
           <Button onClick={handleClose}>Confirm</Button>
         </DialogActions>
-      </Dialog>
+      </WorkspaceDialog>
     </div>
   );
 };
 
 DialogDemo.codeString = `
 import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogActions from "@mui/material/DialogActions";
+import { WorkspaceDialog } from "components/feature/workpace";
 
 <Button>Open simple dialog</Button>
-<Dialog>
+<WorkspaceDialog>
   <DialogTitle>Dialog title</DialogTitle>
   <DialogContent>
     <DialogContentText>DialogContentText</DialogContentText>
@@ -57,5 +75,5 @@ import DialogActions from "@mui/material/DialogActions";
   <DialogActions>
     <Button>Confirm</Button>
   </DialogActions>
-</Dialog>
+</WorkspaceDialog>
 `;
