@@ -1,17 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { IconButtonDemo } from "../components/demo/IconButton";
-import { DialogDemo } from "../components/demo/Dialog";
 import Stack from "@mui/material/Stack";
-import { StepperDemo } from "../components/demo/Stepper";
+import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
 import Container from "@mui/material/Container";
-import {
-  SidePanelCardDemo,
-  SidePanelCardEmptyDemo,
-} from "../components/demo/SidePanelCard";
-import Box from "@mui/material/Box";
+
+import { DialogDemo } from "../components/demo/Dialog";
+import { IconButtonDemo } from "../components/demo/IconButton";
+import { StepperDemo } from "../components/demo/Stepper";
+import { SidePanelCardDemo } from "../components/demo/SidePanelCard";
 import { CodeBlock } from "../components/CodeBlock";
-import Grid from "@mui/material/Grid";
+import { ListDemo } from "../components/demo/List";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -35,7 +33,6 @@ function Index() {
           <Grid size={12}>
             <Divider />
           </Grid>
-
           <Grid size={6}>
             <Stack sx={{ alignItems: "center" }}>
               <DialogDemo />
@@ -47,7 +44,6 @@ function Index() {
           <Grid size={12}>
             <Divider />
           </Grid>
-
           <Grid size={6}>
             <Stack sx={{ alignItems: "center" }}>
               <StepperDemo />
@@ -59,7 +55,6 @@ function Index() {
           <Grid size={12}>
             <Divider />
           </Grid>
-
           <Grid size={6}>
             <Stack sx={{ alignItems: "center" }}>
               <SidePanelCardDemo />
@@ -71,11 +66,18 @@ function Index() {
           <Grid size={12}>
             <Divider />
           </Grid>
+          <Grid size={6}>
+            <Stack sx={{ alignItems: "center" }}>
+              <ListDemo />
+            </Stack>
+          </Grid>
+          <Grid size={6}>
+            <CodeBlock codeString={ListDemo.codeString} />
+          </Grid>
+          <Grid size={12}>
+            <Divider />
+          </Grid>
         </Grid>
-
-        <Box sx={{ width: 320 }}>
-          <SidePanelCardEmptyDemo />
-        </Box>
       </Container>
     </div>
   );

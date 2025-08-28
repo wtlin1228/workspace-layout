@@ -16,6 +16,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
+import { SidePanelCardListItemIcon } from "./List";
 
 const StyledCard = styled(Card)({
   borderRadius: "10px",
@@ -80,18 +81,18 @@ export function SidePanelCardDemo() {
       <SidePanelCardContent>
         <List>
           <ListItem>
-            <ListItemIcon>
+            <SidePanelCardListItemIcon>
               <CheckCircleIcon color="success" />
-            </ListItemIcon>
+            </SidePanelCardListItemIcon>
             <ListItemText
               slotProps={{ primary: { variant: "body2" } }}
               primary="Toodles Galore"
             />
           </ListItem>
           <ListItem>
-            <ListItemIcon>
+            <SidePanelCardListItemIcon>
               <CheckCircleIcon color="success" />
-            </ListItemIcon>
+            </SidePanelCardListItemIcon>
             <ListItemText
               slotProps={{ primary: { variant: "body2" } }}
               primary="Jeannie and the Baby"
@@ -103,22 +104,22 @@ export function SidePanelCardDemo() {
       <SidePanelCardContent>
         <List>
           <ListItem>
-            <ListItemIcon>
+            <SidePanelCardListItemIcon>
               <WifiTetheringOffIcon
                 sx={(theme) => ({ color: theme.palette.grey[300] })}
               />
-            </ListItemIcon>
+            </SidePanelCardListItemIcon>
             <ListItemText
               slotProps={{ primary: { variant: "body2" } }}
               primary="Goldfish"
             />
           </ListItem>
           <ListItem>
-            <ListItemIcon>
+            <SidePanelCardListItemIcon>
               <WifiTetheringOffIcon
                 sx={(theme) => ({ color: theme.palette.grey[300] })}
               />
-            </ListItemIcon>
+            </SidePanelCardListItemIcon>
             <ListItemText
               slotProps={{ primary: { variant: "body2" } }}
               primary="Mechano cat and Robot-Mouse"
