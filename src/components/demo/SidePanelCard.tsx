@@ -15,9 +15,9 @@ import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import type { ReactNode } from "react";
 
 import { SidePanelCardListItemIcon } from "./List";
-import type { ReactNode } from "react";
 
 const StyledCard = styled(Card)({
   borderRadius: "10px",

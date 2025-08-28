@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
@@ -5,6 +6,7 @@ import Stack from "@mui/material/Stack";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { CodeBlock } from "../components/CodeBlock";
+import { ContentCardButtonDemo } from "../components/demo/ContentCard";
 import { DialogDemo } from "../components/demo/Dialog";
 import { IconButtonDemo } from "../components/demo/IconButton";
 import { ListDemo } from "../components/demo/List";
@@ -16,7 +18,6 @@ import {
 } from "../components/demo/SidePanelCard";
 import { StepperDemo } from "../components/demo/Stepper";
 import { SwitchDemo } from "../components/demo/Switch";
-import Box from "@mui/material/Box";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -84,6 +85,19 @@ function Index() {
           </Grid>
           <Grid size={6}>
             <CodeBlock codeString={SidePanelCardEmptyContentDemo.codeString} />
+          </Grid>
+          <Grid size={12}>
+            <Divider />
+          </Grid>
+          <Grid size={6}>
+            <Stack sx={{ alignItems: "center" }}>
+              <Box sx={{ width: 320 }}>
+                <ContentCardButtonDemo />
+              </Box>
+            </Stack>
+          </Grid>
+          <Grid size={6}>
+            <CodeBlock codeString={ContentCardButtonDemo.codeString} />
           </Grid>
           <Grid size={12}>
             <Divider />

@@ -4,7 +4,11 @@ import Stack from "@mui/material/Stack";
 
 export const IconButtonDemo = () => {
   return (
-    <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
+    <Stack
+      direction="row"
+      spacing={2}
+      sx={{ alignItems: "center", flexWrap: "wrap" }}
+    >
       <div>
         <IconButton size="small">
           <DeleteIcon fontSize="inherit" />
