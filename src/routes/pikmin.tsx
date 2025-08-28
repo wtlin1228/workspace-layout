@@ -1,10 +1,11 @@
 import Box from "@mui/material/Box";
-import { createFileRoute, Outlet } from "@tanstack/react-router";
-import { LeftPanel } from "../components/SidePanel";
 import ListItem from "@mui/material/ListItem";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
+import { createFileRoute, Outlet } from "@tanstack/react-router";
+
 import { CustomLink } from "../components/CustomLink";
+import { LeftPanel } from "../components/SidePanel";
 
 export const Route = createFileRoute("/pikmin")({
   component: Pikmin,

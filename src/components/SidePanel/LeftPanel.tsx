@@ -1,8 +1,9 @@
-import type { PropsWithChildren } from "react";
-import Paper from "@mui/material/Paper";
-import IconButton from "@mui/material/IconButton";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import IconButton from "@mui/material/IconButton";
+import Paper from "@mui/material/Paper";
+import type { PropsWithChildren } from "react";
+
 import { useSidePanelContext } from "./Context";
 import { useKeyboardControl } from "./useKeyboardControl";
 

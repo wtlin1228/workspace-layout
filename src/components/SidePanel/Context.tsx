@@ -10,6 +10,7 @@ const SidePanelContext = React.createContext<SidePanelContextValue | null>(
   null
 );
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useSidePanelContext = () => {
   const context = React.useContext(SidePanelContext);
   if (!context) {

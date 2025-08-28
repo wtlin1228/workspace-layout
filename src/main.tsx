@@ -1,12 +1,12 @@
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
+import { createRouter,RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { RouterProvider, createRouter } from "@tanstack/react-router";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import { muiTheme } from "./theme";
 
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
+import { muiTheme } from "./theme";
 
 // Create a new router instance
 const router = createRouter({ routeTree });

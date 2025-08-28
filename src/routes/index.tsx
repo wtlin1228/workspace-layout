@@ -1,15 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
-import Stack from "@mui/material/Stack";
-import Grid from "@mui/material/Grid";
-import Divider from "@mui/material/Divider";
 import Container from "@mui/material/Container";
+import Divider from "@mui/material/Divider";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import { createFileRoute } from "@tanstack/react-router";
 
+import { CodeBlock } from "../components/CodeBlock";
 import { DialogDemo } from "../components/demo/Dialog";
 import { IconButtonDemo } from "../components/demo/IconButton";
-import { StepperDemo } from "../components/demo/Stepper";
-import { SidePanelCardDemo } from "../components/demo/SidePanelCard";
-import { CodeBlock } from "../components/CodeBlock";
 import { ListDemo } from "../components/demo/List";
+import { SidePanelCardDemo } from "../components/demo/SidePanelCard";
+import { StepperDemo } from "../components/demo/Stepper";
 
 export const Route = createFileRoute("/")({
   component: Index,

@@ -1,12 +1,12 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import Box from "@mui/material/Box";
 import { useNavigate } from "@tanstack/react-router";
+import * as React from "react";
 
 import KirbyImg from "../assets/icon-kirby.png";
-import PikminImg from "../assets/icon-pikmin.png";
 import PataponImg from "../assets/icon-patapon.png";
+import PikminImg from "../assets/icon-pikmin.png";
 
 export function LeftNavigation() {
   const [value, setValue] = React.useState<

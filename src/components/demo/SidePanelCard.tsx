@@ -1,21 +1,21 @@
-import Card, { type CardProps } from "@mui/material/Card";
-import CardHeader, { type CardHeaderProps } from "@mui/material/CardHeader";
-import CardContent, { type CardContentProps } from "@mui/material/CardContent";
-import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
-import PestControlRodentIcon from "@mui/icons-material/PestControlRodent";
-import Divider from "@mui/material/Divider";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import PestControlRodentIcon from "@mui/icons-material/PestControlRodent";
 import WifiTetheringOffIcon from "@mui/icons-material/WifiTetheringOff";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Card, { type CardProps } from "@mui/material/Card";
+import CardContent, { type CardContentProps } from "@mui/material/CardContent";
+import CardHeader, { type CardHeaderProps } from "@mui/material/CardHeader";
+import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+
 import { SidePanelCardListItemIcon } from "./List";
 
 const StyledCard = styled(Card)({

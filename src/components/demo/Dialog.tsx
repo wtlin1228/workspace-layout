@@ -1,13 +1,13 @@
-import * as React from "react";
 import Button from "@mui/material/Button";
 import Dialog, { type DialogProps } from "@mui/material/Dialog";
-import DialogTitle, { type DialogTitleProps } from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogActions, {
   type DialogActionsProps,
 } from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle, { type DialogTitleProps } from "@mui/material/DialogTitle";
 import { styled } from "@mui/material/styles";
+import * as React from "react";
 
 const WorkspaceDialog = (props: DialogProps) => {
   const isMd = props.maxWidth === "md";

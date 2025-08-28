@@ -1,6 +1,7 @@
-import { createRootRoute, Outlet } from "@tanstack/react-router";
-import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import { createRootRoute, Outlet } from "@tanstack/react-router";
+
 import { ResponsiveAppBar } from "../components/Appbar";
 import { BasicBreadcrumbs } from "../components/Breadcrumbs";
 import { LeftNavigation } from "../components/LeftNav";

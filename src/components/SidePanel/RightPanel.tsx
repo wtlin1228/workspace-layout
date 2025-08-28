@@ -1,5 +1,6 @@
-import type { PropsWithChildren } from "react";
 import Paper from "@mui/material/Paper";
+import type { PropsWithChildren } from "react";
+
 import { useSidePanelContext } from "./Context";
 
 /**
