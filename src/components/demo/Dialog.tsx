@@ -1,10 +1,13 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 import Dialog, { type DialogProps } from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
+import DialogTitle, { type DialogTitleProps } from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
-import DialogActions from "@mui/material/DialogActions";
+import DialogActions, {
+  type DialogActionsProps,
+} from "@mui/material/DialogActions";
+import { styled } from "@mui/material/styles";
 
 const WorkspaceDialog = (props: DialogProps) => {
   const isMd = props.maxWidth === "md";
@@ -24,6 +27,23 @@ const WorkspaceDialog = (props: DialogProps) => {
   );
 };
 
+const StyledDialogTitle = styled(DialogTitle)(({ theme }) => ({
+  paddingBlock: theme.spacing(3),
+}));
+
+const WorkspaceDialogTitle = (props: DialogTitleProps) => {
+  return <StyledDialogTitle {...props} />;
+};
+
+const StyledDialogActions = styled(DialogActions)(({ theme }) => ({
+  paddingBlock: theme.spacing(3),
+  paddingInline: theme.spacing(2),
+}));
+
+const WorkspaceDialogActions = (props: DialogActionsProps) => {
+  return <StyledDialogActions {...props} />;
+};
+
 export const DialogDemo = () => {
   const [open, setOpen] = React.useState(false);
 
@@ -41,7 +61,7 @@ export const DialogDemo = () => {
         Open simple dialog
       </Button>
       <WorkspaceDialog onClose={handleClose} open={open} maxWidth="md">
-        <DialogTitle>Dialog title</DialogTitle>
+        <WorkspaceDialogTitle>Dialog title</WorkspaceDialogTitle>
         <DialogContent>
           <DialogContentText>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum
@@ -50,9 +70,9 @@ export const DialogDemo = () => {
             consequuntur!
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
+        <WorkspaceDialogActions>
           <Button onClick={handleClose}>Confirm</Button>
-        </DialogActions>
+        </WorkspaceDialogActions>
       </WorkspaceDialog>
     </div>
   );
@@ -60,20 +80,26 @@ export const DialogDemo = () => {
 
 DialogDemo.codeString = `
 import Button from "@mui/material/Button";
-import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
-import DialogActions from "@mui/material/DialogActions";
-import { WorkspaceDialog } from "components/feature/workpace";
+import { 
+  WorkspaceDialog, 
+  WorkspaceDialogTitle,
+  WorkspaceDialogActions,
+} from "components/feature/workpace";
 
 <Button>Open simple dialog</Button>
 <WorkspaceDialog>
-  <DialogTitle>Dialog title</DialogTitle>
+  <WorkspaceDialogTitle>
+    { /* ... */ }
+  </WorkspaceDialogTitle>
   <DialogContent>
-    <DialogContentText>DialogContentText</DialogContentText>
+    <DialogContentText>
+      { /* ... */ }
+    </DialogContentText>
   </DialogContent>
-  <DialogActions>
-    <Button>Confirm</Button>
-  </DialogActions>
+  <WorkspaceDialogActions>
+    { /* ... */ }
+  </WorkspaceDialogActions>
 </WorkspaceDialog>
 `;
