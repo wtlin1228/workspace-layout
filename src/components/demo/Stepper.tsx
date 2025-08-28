@@ -2,11 +2,28 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
+import StepLabel, { type StepLabelProps } from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-const steps = ["Step title", "Step title", "Step title", "Step title"];
+const steps = ["Step1", "Step2", "Step3"];
+
+const WorkspaceStepLabel = (props: StepLabelProps) => {
+  return (
+    <StepLabel
+      slotProps={{
+        label: {
+          sx: {
+            "&.Mui-active": {
+              color: (theme) => theme.palette.primary.main,
+            },
+          },
+        },
+      }}
+      {...props}
+    />
+  );
+};
 
 export function StepperDemo() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -29,7 +46,7 @@ export function StepperDemo() {
         {steps.map((label, index) => {
           return (
             <Step key={index}>
-              <StepLabel>{label}</StepLabel>
+              <WorkspaceStepLabel>{label}</WorkspaceStepLabel>
             </Step>
           );
         })}
@@ -67,3 +84,21 @@ export function StepperDemo() {
     </Box>
   );
 }
+
+StepperDemo.codeString = `
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import { WorkspaceStepLabel } from "components/feature/workpace"
+
+const steps = ["Step1", "Step2", "Step3"];
+
+<Stepper activeStep={activeStep}>
+  {steps.map((label, index) => {
+    return (
+      <Step key={index}>
+        <WorkspaceStepLabel>{label}</WorkspaceStepLabel>
+      </Step>
+    );
+  })}
+</Stepper>
+`;

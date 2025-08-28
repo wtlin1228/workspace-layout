@@ -1,10 +1,10 @@
 import * as React from "react";
-import DialogTitle from "@mui/material/DialogTitle";
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
+import DialogActions from "@mui/material/DialogActions";
 
 export const DialogDemo = () => {
   const [open, setOpen] = React.useState(false);
@@ -39,3 +39,23 @@ export const DialogDemo = () => {
     </div>
   );
 };
+
+DialogDemo.codeString = `
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogActions from "@mui/material/DialogActions";
+
+<Button>Open simple dialog</Button>
+<Dialog>
+  <DialogTitle>Dialog title</DialogTitle>
+  <DialogContent>
+    <DialogContentText>DialogContentText</DialogContentText>
+  </DialogContent>
+  <DialogActions>
+    <Button>Confirm</Button>
+  </DialogActions>
+</Dialog>
+`;
