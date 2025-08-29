@@ -18,6 +18,7 @@ import Typography from "@mui/material/Typography";
 import type { ReactNode } from "react";
 
 import { PanelCardListItemIcon } from "./List";
+import CardActionArea from "@mui/material/CardActionArea";
 
 const StyledCard = styled(Card)({
   borderRadius: "10px",
@@ -40,6 +41,11 @@ const PanelCardHeader = (props: CardHeaderProps) => {
         },
         subheader: {
           variant: "body2",
+        },
+        action: {
+          sx: {
+            alignSelf: "center",
+          },
         },
       }}
       {...props}
@@ -278,4 +284,31 @@ import {
     actions={<Button>Buy a trap</Button>}
   />
 </PanelCard>  
+`;
+
+export const PanelCardSelectedDemo = () => {
+  return (
+    <PanelCard>
+      <CardActionArea data-active>
+        <PanelCardHeader
+          avatar={
+            <PestControlRodentIcon
+              sx={(theme) => ({ color: theme.palette.grey[300] })}
+            />
+          }
+          action={
+            <Stack sx={{ p: 1 }}>
+              <AddIcon color="primary" />
+            </Stack>
+          }
+          title="Tom & Jerry"
+          subheader="Tom and associated Jerrys"
+        />
+      </CardActionArea>
+    </PanelCard>
+  );
+};
+
+PanelCardSelectedDemo.codeString = `
+
 `;

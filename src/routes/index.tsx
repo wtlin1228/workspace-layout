@@ -17,6 +17,7 @@ import { NavRailActionDemo, NavRailDemo } from "../components/demo/NavRail";
 import {
   PanelCardDemo,
   PanelCardEmptyContentDemo,
+  PanelCardSelectedDemo,
 } from "../components/demo/PanelCard";
 import { RadioDemo } from "../components/demo/Radio";
 import {
@@ -69,6 +70,16 @@ const demos = [
       </Box>
     ),
     code: PanelCardEmptyContentDemo.codeString,
+  },
+  {
+    id: "panel-card-selected",
+    title: "Panel Card (Selected)",
+    component: (
+      <Box sx={{ width: 320 }}>
+        <PanelCardSelectedDemo />
+      </Box>
+    ),
+    code: PanelCardSelectedDemo.codeString,
   },
   {
     id: "content-card",
