@@ -4,14 +4,21 @@ import InfoOutlineIcon from "@mui/icons-material/InfoOutline";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CardHeader, { type CardHeaderProps } from "@mui/material/CardHeader";
 import IconButton from "@mui/material/IconButton";
-import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
+import { PanelCardDemo, PanelCardEmptyContent1Demo } from "./PanelCard";
+import Card, { type CardProps } from "@mui/material/Card";
+import CardContent, { type CardContentProps } from "@mui/material/CardContent";
+import { styled } from "@mui/material/styles";
+
+const StyledCardHeader = styled(CardHeader)({
+  padding: 0,
+});
 
 const SidePanelHeader = (props: CardHeaderProps) => {
   return (
-    <CardHeader
+    <StyledCardHeader
       slotProps={{
         avatar: { sx: { mr: 1 } },
         title: { variant: "subtitle1" },
@@ -113,7 +120,7 @@ const SidePanelHeader6Demo = () => {
 
 export const SidePanelHeaderDemo = () => {
   return (
-    <Stack>
+    <Stack spacing={4}>
       <SidePanelHeader1Demo />
       <SidePanelHeader2Demo />
       <SidePanelHeader3Demo />
@@ -166,8 +173,40 @@ import { SidePanelHeader } from "components/feature/workpace";
 />
 `;
 
+const StyledSidePanel = styled(Card)(({ theme }) => ({
+  padding: theme.spacing(2),
+  width: 352,
+}));
+
+const SidePanel = (props: CardProps) => {
+  return <StyledSidePanel {...props} />;
+};
+
+const StyledSidePanelContent = styled(CardContent)(({ theme }) => ({
+  marginTop: theme.spacing(2),
+  padding: 0,
+
+  "&:last-child": {
+    paddingBottom: 0,
+  },
+}));
+
+const SidePanelContent = (props: CardContentProps) => {
+  return <StyledSidePanelContent {...props} />;
+};
+
 const SidePanel1Demo = () => {
-  return <Paper>123</Paper>;
+  return (
+    <SidePanel elevation={5}>
+      <SidePanelHeader1Demo />
+      <SidePanelContent>
+        <PanelCardDemo />
+      </SidePanelContent>
+      <SidePanelContent>
+        <PanelCardEmptyContent1Demo />
+      </SidePanelContent>
+    </SidePanel>
+  );
 };
 
 export const SidePanelDemo = () => {
@@ -179,5 +218,20 @@ export const SidePanelDemo = () => {
 };
 
 SidePanelDemo.codeString = `
+import { 
+  SidePanel, 
+  SidePanelHeader,
+  SidePanelContent,
+  PanelCard,
+} from "components/feature/workpace";
 
+<SidePanel>
+  <SidePanelHeader>{ /* ... */ }</SidePanelHeader>
+  <SidePanelContent>
+    <PanelCard>{ /* ... */ }</PanelCard>
+  </SidePanelContent>
+  <SidePanelContent>
+    <PanelCard>{ /* ... */ }</PanelCard>
+  </SidePanelContent>
+</SidePanel>
 `;
