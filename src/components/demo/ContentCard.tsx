@@ -27,7 +27,7 @@ const ContentCardHeader = (props: CardHeaderProps) => {
     <StyledCardHeader
       slotProps={{
         title: {
-          variant: "body1",
+          variant: "subtitle2",
         },
         subheader: {
           variant: "body2",
