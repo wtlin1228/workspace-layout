@@ -4,6 +4,7 @@ import InfoOutlineIcon from "@mui/icons-material/InfoOutline";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CardHeader, { type CardHeaderProps } from "@mui/material/CardHeader";
 import IconButton from "@mui/material/IconButton";
+import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
@@ -163,4 +164,20 @@ import { SidePanelHeader } from "components/feature/workpace";
     </IconButton>
   }
 />
+`;
+
+const SidePanel1Demo = () => {
+  return <Paper>123</Paper>;
+};
+
+export const SidePanelDemo = () => {
+  return (
+    <Stack spacing={2}>
+      <SidePanel1Demo />
+    </Stack>
+  );
+};
+
+SidePanelDemo.codeString = `
+
 `;
