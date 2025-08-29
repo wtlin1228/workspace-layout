@@ -20,6 +20,7 @@ import { RadioDemo } from "../components/demo/Radio";
 import {
   SidePanelDemo,
   SidePanelHeaderDemo,
+  SidePanelScrollDemo,
 } from "../components/demo/SidePanel";
 import { StepperDemo } from "../components/demo/Stepper";
 import { SwitchDemo } from "../components/demo/Switch";
@@ -83,6 +84,20 @@ const demos = [
     title: "Side Panel",
     component: <SidePanelDemo />,
     code: SidePanelDemo.codeString,
+  },
+  {
+    title: "Side Panel (Scroll)",
+    component: (
+      <Stack spacing={2}>
+        <Box sx={{ height: 300 }}>
+          <SidePanelScrollDemo />
+        </Box>
+        <Box sx={{ height: 550 }}>
+          <SidePanelScrollDemo />
+        </Box>
+      </Stack>
+    ),
+    code: SidePanelScrollDemo.codeString,
   },
 ];
 
