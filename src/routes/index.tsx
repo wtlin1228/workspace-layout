@@ -13,7 +13,7 @@ import { ContentCardDemo } from "../components/demo/ContentCard";
 import { DialogDemo } from "../components/demo/Dialog";
 import { IconButtonDemo } from "../components/demo/IconButton";
 import { ListDemo } from "../components/demo/List";
-import { NavRailActionDemo } from "../components/demo/NavRail";
+import { NavRailActionDemo, NavRailDemo } from "../components/demo/NavRail";
 import {
   PanelCardDemo,
   PanelCardEmptyContentDemo,
@@ -126,10 +126,30 @@ const demos = [
     code: SidePanelScrollDemo.codeString,
   },
   {
-    id: "nav-rail-button",
-    title: "Nav Rail Button",
-    component: <NavRailActionDemo />,
+    id: "nav-rail-action",
+    title: "Nav Rail Action",
+    component: (
+      <Stack spacing={2} sx={{ width: 104 }}>
+        <NavRailActionDemo />
+      </Stack>
+    ),
     code: NavRailActionDemo.codeString,
+  },
+  {
+    id: "nav-rail",
+    title: "Nav Rail",
+    component: (
+      <Stack spacing={2}>
+        <Box sx={{ height: 650 }}>
+          <NavRailDemo />
+        </Box>
+
+        <Box sx={{ height: 300 }}>
+          <NavRailDemo />
+        </Box>
+      </Stack>
+    ),
+    code: NavRailDemo.codeString,
   },
 ];
 
