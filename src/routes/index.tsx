@@ -7,7 +7,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import * as React from "react";
 
 import { CodeBlock } from "../components/CodeBlock";
-import { ContentCardButtonDemo } from "../components/demo/ContentCard";
+import { ContentCardDemo } from "../components/demo/ContentCard";
 import { DialogDemo } from "../components/demo/Dialog";
 import { IconButtonDemo } from "../components/demo/IconButton";
 import { ListDemo } from "../components/demo/List";
@@ -47,10 +47,10 @@ const demos = [
   {
     component: (
       <Box sx={{ width: 320 }}>
-        <ContentCardButtonDemo />
+        <ContentCardDemo />
       </Box>
     ),
-    code: ContentCardButtonDemo.codeString,
+    code: ContentCardDemo.codeString,
   },
   { component: <ListDemo />, code: ListDemo.codeString },
   { component: <SwitchDemo />, code: SwitchDemo.codeString },
