@@ -14,7 +14,7 @@ const StyleListItemIcon = styled(ListItemIcon)({
   minWidth: 32,
 });
 
-export const SidePanelCardListItemIcon = (props: ListItemIconProps) => {
+export const PanelCardListItemIcon = (props: ListItemIconProps) => {
   return <StyleListItemIcon {...props} />;
 };
 
@@ -22,7 +22,7 @@ const StyleListItemButton = styled(ListItemButton)({
   borderRadius: "6px",
 });
 
-const SidePanelCardListItemButton = (props: ListItemButtonProps) => {
+const PanelCardListItemButton = (props: ListItemButtonProps) => {
   return <StyleListItemButton {...props} />;
 };
 
@@ -30,29 +30,29 @@ export const ListDemo = () => {
   return (
     <List>
       <ListItem>
-        <SidePanelCardListItemIcon>
+        <PanelCardListItemIcon>
           <CoffeeIcon />
-        </SidePanelCardListItemIcon>
+        </PanelCardListItemIcon>
         <ListItemText primary="ListItem" />
       </ListItem>
-      <SidePanelCardListItemButton>
-        <SidePanelCardListItemIcon>
+      <PanelCardListItemButton>
+        <PanelCardListItemIcon>
           <CoffeeIcon />
-        </SidePanelCardListItemIcon>
+        </PanelCardListItemIcon>
         <ListItemText primary="ListItemButton" />
-      </SidePanelCardListItemButton>
-      <SidePanelCardListItemButton selected>
-        <SidePanelCardListItemIcon>
+      </PanelCardListItemButton>
+      <PanelCardListItemButton selected>
+        <PanelCardListItemIcon>
           <CoffeeIcon />
-        </SidePanelCardListItemIcon>
+        </PanelCardListItemIcon>
         <ListItemText primary="ListItemButton::Selected" />
-      </SidePanelCardListItemButton>
-      <SidePanelCardListItemButton disabled>
-        <SidePanelCardListItemIcon>
+      </PanelCardListItemButton>
+      <PanelCardListItemButton disabled>
+        <PanelCardListItemIcon>
           <CoffeeIcon />
-        </SidePanelCardListItemIcon>
+        </PanelCardListItemIcon>
         <ListItemText primary="ListItemButton::Disabled" />
-      </SidePanelCardListItemButton>
+      </PanelCardListItemButton>
     </List>
   );
 };
@@ -61,22 +61,22 @@ ListDemo.codeString = `
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import { 
-  SidePanelCardListItemButton,
-  SidePanelCardListItemIcon,
+  PanelCardListItemButton,
+  PanelCardListItemIcon,
 } from "components/feature/workpace";
 
 <List>
   <ListItem>
-    <SidePanelCardListItemIcon>
+    <PanelCardListItemIcon>
       <CoffeeIcon />
-    </SidePanelCardListItemIcon>
+    </PanelCardListItemIcon>
     <ListItemText primary="ListItem" />
   </ListItem>
-  <SidePanelCardListItemButton>
-    <SidePanelCardListItemIcon>
+  <PanelCardListItemButton>
+    <PanelCardListItemIcon>
       <CoffeeIcon />
-    </SidePanelCardListItemIcon>
+    </PanelCardListItemIcon>
     <ListItemText primary="ListItemButton" />
-  </SidePanelCardListItemButton>
+  </PanelCardListItemButton>
 </List>
 `;

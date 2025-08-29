@@ -11,12 +11,12 @@ import { ContentCardDemo } from "../components/demo/ContentCard";
 import { DialogDemo } from "../components/demo/Dialog";
 import { IconButtonDemo } from "../components/demo/IconButton";
 import { ListDemo } from "../components/demo/List";
+import {
+  PanelCardDemo,
+  PanelCardEmptyContentDemo,
+} from "../components/demo/PanelCard";
 import { RadioDemo } from "../components/demo/Radio";
 import { SidePanelHeaderDemo } from "../components/demo/SidePanel";
-import {
-  SidePanelCardDemo,
-  SidePanelCardEmptyContentDemo,
-} from "../components/demo/SidePanelCard";
 import { StepperDemo } from "../components/demo/Stepper";
 import { SwitchDemo } from "../components/demo/Switch";
 
@@ -31,18 +31,18 @@ const demos = [
   {
     component: (
       <Box sx={{ width: 320 }}>
-        <SidePanelCardDemo />
+        <PanelCardDemo />
       </Box>
     ),
-    code: SidePanelCardDemo.codeString,
+    code: PanelCardDemo.codeString,
   },
   {
     component: (
       <Box sx={{ width: 320 }}>
-        <SidePanelCardEmptyContentDemo />
+        <PanelCardEmptyContentDemo />
       </Box>
     ),
-    code: SidePanelCardEmptyContentDemo.codeString,
+    code: PanelCardEmptyContentDemo.codeString,
   },
   {
     component: (
