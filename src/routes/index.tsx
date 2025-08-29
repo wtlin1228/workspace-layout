@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { createFileRoute } from "@tanstack/react-router";
@@ -12,6 +13,7 @@ import { ContentCardDemo } from "../components/demo/ContentCard";
 import { DialogDemo } from "../components/demo/Dialog";
 import { IconButtonDemo } from "../components/demo/IconButton";
 import { ListDemo } from "../components/demo/List";
+import { NavRailActionDemo } from "../components/demo/NavRail";
 import {
   PanelCardDemo,
   PanelCardEmptyContentDemo,
@@ -31,21 +33,25 @@ export const Route = createFileRoute("/")({
 
 const demos = [
   {
+    id: "icon-button",
     title: "Icon Button",
     component: <IconButtonDemo />,
     code: IconButtonDemo.codeString,
   },
   {
+    id: "dialog",
     title: "Dialog",
     component: <DialogDemo />,
     code: DialogDemo.codeString,
   },
   {
+    id: "stepper",
     title: "Stepper",
     component: <StepperDemo />,
     code: StepperDemo.codeString,
   },
   {
+    id: "panel-card",
     title: "Panel Card",
     component: (
       <Box sx={{ width: 320 }}>
@@ -55,6 +61,7 @@ const demos = [
     code: PanelCardDemo.codeString,
   },
   {
+    id: "panel-card-empty",
     title: "Panel Card (Empty Content)",
     component: (
       <Box sx={{ width: 320 }}>
@@ -64,6 +71,7 @@ const demos = [
     code: PanelCardEmptyContentDemo.codeString,
   },
   {
+    id: "content-card",
     title: "Content Card",
     component: (
       <Box sx={{ width: 320 }}>
@@ -72,20 +80,38 @@ const demos = [
     ),
     code: ContentCardDemo.codeString,
   },
-  { title: "List", component: <ListDemo />, code: ListDemo.codeString },
-  { title: "Switch", component: <SwitchDemo />, code: SwitchDemo.codeString },
-  { title: "Radio", component: <RadioDemo />, code: RadioDemo.codeString },
   {
+    id: "list",
+    title: "List",
+    component: <ListDemo />,
+    code: ListDemo.codeString,
+  },
+  {
+    id: "switch",
+    title: "Switch",
+    component: <SwitchDemo />,
+    code: SwitchDemo.codeString,
+  },
+  {
+    id: "radio",
+    title: "Radio",
+    component: <RadioDemo />,
+    code: RadioDemo.codeString,
+  },
+  {
+    id: "side-panel-header",
     title: "Side Panel Header",
     component: <SidePanelHeaderDemo />,
     code: SidePanelHeaderDemo.codeString,
   },
   {
+    id: "side-panel",
     title: "Side Panel",
     component: <SidePanelDemo />,
     code: SidePanelDemo.codeString,
   },
   {
+    id: "side-panel-scroll",
     title: "Side Panel (Scroll)",
     component: (
       <Stack spacing={2}>
@@ -99,6 +125,12 @@ const demos = [
     ),
     code: SidePanelScrollDemo.codeString,
   },
+  {
+    id: "nav-rail-button",
+    title: "Nav Rail Button",
+    component: <NavRailActionDemo />,
+    code: NavRailActionDemo.codeString,
+  },
 ];
 
 function Index() {
@@ -106,15 +138,23 @@ function Index() {
     <div>
       <Container maxWidth="lg">
         <Grid container spacing={2} sx={{ width: "100%" }}>
-          {demos.map(({ title, component, code }, idx) => (
+          {demos.map(({ id, title, component, code }, idx) => (
             <React.Fragment key={idx}>
               <Grid size={12}>
                 <Box sx={{ mt: 2, mb: 4 }}>
                   <Typography
+                    id={id}
                     variant="h1"
                     sx={{ textAlign: "center", fontWeight: 500 }}
                   >
-                    {title}
+                    <Link
+                      href={`#${id}`}
+                      underline="hover"
+                      color="inherit"
+                      sx={{ cursor: "pointer" }}
+                    >
+                      {title}
+                    </Link>
                   </Typography>
                 </Box>
               </Grid>
