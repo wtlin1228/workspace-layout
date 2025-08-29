@@ -13,7 +13,7 @@ const SidePanelHeader = (props: CardHeaderProps) => {
     <CardHeader
       slotProps={{
         avatar: { sx: { mr: 1 } },
-        title: { variant: "body1" },
+        title: { variant: "subtitle1" },
         subheader: { variant: "body2", sx: { mt: 1.5 } },
       }}
       {...props}

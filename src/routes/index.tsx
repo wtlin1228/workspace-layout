@@ -4,6 +4,7 @@ import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import { createFileRoute } from "@tanstack/react-router";
+import * as React from "react";
 
 import { CodeBlock } from "../components/CodeBlock";
 import { ContentCardButtonDemo } from "../components/demo/ContentCard";
@@ -23,6 +24,40 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const demos = [
+  { component: <IconButtonDemo />, code: IconButtonDemo.codeString },
+  { component: <DialogDemo />, code: DialogDemo.codeString },
+  { component: <StepperDemo />, code: StepperDemo.codeString },
+  {
+    component: (
+      <Box sx={{ width: 320 }}>
+        <SidePanelCardDemo />
+      </Box>
+    ),
+    code: SidePanelCardDemo.codeString,
+  },
+  {
+    component: (
+      <Box sx={{ width: 320 }}>
+        <SidePanelCardEmptyContentDemo />
+      </Box>
+    ),
+    code: SidePanelCardEmptyContentDemo.codeString,
+  },
+  {
+    component: (
+      <Box sx={{ width: 320 }}>
+        <ContentCardButtonDemo />
+      </Box>
+    ),
+    code: ContentCardButtonDemo.codeString,
+  },
+  { component: <ListDemo />, code: ListDemo.codeString },
+  { component: <SwitchDemo />, code: SwitchDemo.codeString },
+  { component: <RadioDemo />, code: RadioDemo.codeString },
+  { component: <SidePanelHeaderDemo />, code: SidePanelHeaderDemo.codeString },
+];
+
 function Index() {
   return (
     <div>
@@ -30,122 +65,19 @@ function Index() {
 
       <Container maxWidth="lg">
         <Grid container spacing={2} sx={{ width: "100%" }}>
-          <Grid size={6}>
-            <Stack sx={{ alignItems: "center" }}>
-              <IconButtonDemo />
-            </Stack>
-          </Grid>
-          <Grid size={6}>
-            <CodeBlock codeString={IconButtonDemo.codeString} />
-          </Grid>
-          <Grid size={12}>
-            <Divider />
-          </Grid>
-          <Grid size={6}>
-            <Stack sx={{ alignItems: "center" }}>
-              <DialogDemo />
-            </Stack>
-          </Grid>
-          <Grid size={6}>
-            <CodeBlock codeString={DialogDemo.codeString} />
-          </Grid>
-          <Grid size={12}>
-            <Divider />
-          </Grid>
-          <Grid size={6}>
-            <Stack sx={{ alignItems: "center" }}>
-              <StepperDemo />
-            </Stack>
-          </Grid>
-          <Grid size={6}>
-            <CodeBlock codeString={StepperDemo.codeString} />
-          </Grid>
-          <Grid size={12}>
-            <Divider />
-          </Grid>
-          <Grid size={6}>
-            <Stack sx={{ alignItems: "center" }}>
-              <Box sx={{ width: 320 }}>
-                <SidePanelCardDemo />
-              </Box>
-            </Stack>
-          </Grid>
-          <Grid size={6}>
-            <CodeBlock codeString={SidePanelCardDemo.codeString} />
-          </Grid>
-          <Grid size={12}>
-            <Divider />
-          </Grid>
-          <Grid size={6}>
-            <Stack sx={{ alignItems: "center" }}>
-              <Box sx={{ width: 320 }}>
-                <SidePanelCardEmptyContentDemo />
-              </Box>
-            </Stack>
-          </Grid>
-          <Grid size={6}>
-            <CodeBlock codeString={SidePanelCardEmptyContentDemo.codeString} />
-          </Grid>
-          <Grid size={12}>
-            <Divider />
-          </Grid>
-          <Grid size={6}>
-            <Stack sx={{ alignItems: "center" }}>
-              <Box sx={{ width: 320 }}>
-                <ContentCardButtonDemo />
-              </Box>
-            </Stack>
-          </Grid>
-          <Grid size={6}>
-            <CodeBlock codeString={ContentCardButtonDemo.codeString} />
-          </Grid>
-          <Grid size={12}>
-            <Divider />
-          </Grid>
-          <Grid size={6}>
-            <Stack sx={{ alignItems: "center" }}>
-              <ListDemo />
-            </Stack>
-          </Grid>
-          <Grid size={6}>
-            <CodeBlock codeString={ListDemo.codeString} />
-          </Grid>
-          <Grid size={12}>
-            <Divider />
-          </Grid>
-          <Grid size={6}>
-            <Stack sx={{ alignItems: "center" }}>
-              <SwitchDemo />
-            </Stack>
-          </Grid>
-          <Grid size={6}>
-            <CodeBlock codeString={SwitchDemo.codeString} />
-          </Grid>
-          <Grid size={12}>
-            <Divider />
-          </Grid>
-          <Grid size={6}>
-            <Stack sx={{ alignItems: "center" }}>
-              <RadioDemo />
-            </Stack>
-          </Grid>
-          <Grid size={6}>
-            <CodeBlock codeString={RadioDemo.codeString} />
-          </Grid>
-          <Grid size={12}>
-            <Divider />
-          </Grid>
-          <Grid size={6}>
-            <Stack sx={{ alignItems: "center" }}>
-              <SidePanelHeaderDemo />
-            </Stack>
-          </Grid>
-          <Grid size={6}>
-            <CodeBlock codeString={SidePanelHeaderDemo.codeString} />
-          </Grid>
-          <Grid size={12}>
-            <Divider />
-          </Grid>
+          {demos.map(({ component, code }, idx) => (
+            <React.Fragment key={idx}>
+              <Grid size={6}>
+                <Stack sx={{ alignItems: "center" }}>{component}</Stack>
+              </Grid>
+              <Grid size={6}>
+                <CodeBlock codeString={code} />
+              </Grid>
+              <Grid size={12}>
+                <Divider />
+              </Grid>
+            </React.Fragment>
+          ))}
         </Grid>
       </Container>
     </div>
