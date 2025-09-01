@@ -13,12 +13,14 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
-import { styled } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import type { ReactNode } from "react";
 
 import { PanelCardListItemIcon } from "./List";
-import CardActionArea from "@mui/material/CardActionArea";
+import CardActionArea, {
+  type CardActionAreaProps,
+} from "@mui/material/CardActionArea";
 
 const StyledCard = styled(Card)({
   borderRadius: "10px",
@@ -286,29 +288,100 @@ import {
 </PanelCard>  
 `;
 
+const StyledCardActionArea = styled(CardActionArea, {
+  shouldForwardProp: (prop) => prop !== "selected",
+})<CardActionAreaProps & { selected?: boolean }>(
+  {},
+  {
+    variants: [
+      {
+        props: {
+          selected: true,
+        },
+        style: ({ theme }) => ({
+          backgroundColor: alpha(
+            theme.palette.primary.main,
+            theme.palette.action.selectedOpacity
+          ),
+        }),
+      },
+    ],
+  }
+);
+
+export const PanelCardActionArea = (
+  props: CardActionAreaProps & { selected?: boolean }
+) => {
+  return <StyledCardActionArea {...props} />;
+};
+
+const PanelCardSelected1Demo = () => (
+  <PanelCard>
+    <PanelCardActionArea>
+      <PanelCardHeader
+        avatar={
+          <PestControlRodentIcon
+            sx={(theme) => ({ color: theme.palette.grey[300] })}
+          />
+        }
+        action={
+          <Stack sx={{ p: 1 }}>
+            <AddIcon color="primary" />
+          </Stack>
+        }
+        title="Tom & Jerry"
+        subheader="Tom and associated Jerrys"
+      />
+    </PanelCardActionArea>
+  </PanelCard>
+);
+
+const PanelCardSelected2Demo = () => (
+  <PanelCard>
+    <PanelCardActionArea selected>
+      <PanelCardHeader
+        avatar={
+          <PestControlRodentIcon
+            sx={(theme) => ({ color: theme.palette.grey[300] })}
+          />
+        }
+        action={
+          <Stack sx={{ p: 1 }}>
+            <AddIcon color="primary" />
+          </Stack>
+        }
+        title="Tom & Jerry"
+        subheader="Tom and associated Jerrys"
+      />
+    </PanelCardActionArea>
+  </PanelCard>
+);
+
 export const PanelCardSelectedDemo = () => {
   return (
-    <PanelCard>
-      <CardActionArea data-active>
-        <PanelCardHeader
-          avatar={
-            <PestControlRodentIcon
-              sx={(theme) => ({ color: theme.palette.grey[300] })}
-            />
-          }
-          action={
-            <Stack sx={{ p: 1 }}>
-              <AddIcon color="primary" />
-            </Stack>
-          }
-          title="Tom & Jerry"
-          subheader="Tom and associated Jerrys"
-        />
-      </CardActionArea>
-    </PanelCard>
+    <Stack spacing={2}>
+      <PanelCardSelected1Demo />
+      <PanelCardSelected2Demo />
+    </Stack>
   );
 };
 
 PanelCardSelectedDemo.codeString = `
+import {
+  PanelCard,
+  PanelCardActionArea,
+  PanelCardHeader,
+} from "components/feature/workpace";
 
+<PanelCard>
+  <PanelCardActionArea>
+    <PanelCardHeader { /* ... */ } />
+  </PanelCardActionArea>
+</PanelCard>
+
+<PanelCard>
+  <PanelCardActionArea selected>
+    <PanelCardHeader { /* ... */ } />
+  </PanelCardActionArea>
+</PanelCard>
 `;
