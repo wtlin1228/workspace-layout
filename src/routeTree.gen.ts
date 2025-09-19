@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as PikminRouteImport } from './routes/pikmin'
 import { Route as PataponRouteImport } from './routes/patapon'
 import { Route as KirbyRouteImport } from './routes/kirby'
+import { Route as Demo2RouteImport } from './routes/demo2'
+import { Route as Demo1RouteImport } from './routes/demo1'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PikminPowerRouteImport } from './routes/pikmin.power'
 import { Route as PikminFriendsRouteImport } from './routes/pikmin.friends'
@@ -36,6 +38,16 @@ const PataponRoute = PataponRouteImport.update({
 const KirbyRoute = KirbyRouteImport.update({
   id: '/kirby',
   path: '/kirby',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Demo2Route = Demo2RouteImport.update({
+  id: '/demo2',
+  path: '/demo2',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Demo1Route = Demo1RouteImport.update({
+  id: '/demo1',
+  path: '/demo1',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -91,6 +103,8 @@ const KirbyCafeRoute = KirbyCafeRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/demo1': typeof Demo1Route
+  '/demo2': typeof Demo2Route
   '/kirby': typeof KirbyRouteWithChildren
   '/patapon': typeof PataponRouteWithChildren
   '/pikmin': typeof PikminRouteWithChildren
@@ -106,6 +120,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/demo1': typeof Demo1Route
+  '/demo2': typeof Demo2Route
   '/kirby': typeof KirbyRouteWithChildren
   '/patapon': typeof PataponRouteWithChildren
   '/pikmin': typeof PikminRouteWithChildren
@@ -122,6 +138,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/demo1': typeof Demo1Route
+  '/demo2': typeof Demo2Route
   '/kirby': typeof KirbyRouteWithChildren
   '/patapon': typeof PataponRouteWithChildren
   '/pikmin': typeof PikminRouteWithChildren
@@ -139,6 +157,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/demo1'
+    | '/demo2'
     | '/kirby'
     | '/patapon'
     | '/pikmin'
@@ -154,6 +174,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/demo1'
+    | '/demo2'
     | '/kirby'
     | '/patapon'
     | '/pikmin'
@@ -169,6 +191,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/demo1'
+    | '/demo2'
     | '/kirby'
     | '/patapon'
     | '/pikmin'
@@ -185,6 +209,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  Demo1Route: typeof Demo1Route
+  Demo2Route: typeof Demo2Route
   KirbyRoute: typeof KirbyRouteWithChildren
   PataponRoute: typeof PataponRouteWithChildren
   PikminRoute: typeof PikminRouteWithChildren
@@ -211,6 +237,20 @@ declare module '@tanstack/react-router' {
       path: '/kirby'
       fullPath: '/kirby'
       preLoaderRoute: typeof KirbyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demo2': {
+      id: '/demo2'
+      path: '/demo2'
+      fullPath: '/demo2'
+      preLoaderRoute: typeof Demo2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demo1': {
+      id: '/demo1'
+      path: '/demo1'
+      fullPath: '/demo1'
+      preLoaderRoute: typeof Demo1RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -332,6 +372,8 @@ const PikminRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  Demo1Route: Demo1Route,
+  Demo2Route: Demo2Route,
   KirbyRoute: KirbyRouteWithChildren,
   PataponRoute: PataponRouteWithChildren,
   PikminRoute: PikminRouteWithChildren,

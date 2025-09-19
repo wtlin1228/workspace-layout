@@ -10,6 +10,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
+import { useNavigate } from "@tanstack/react-router";
 import * as React from "react";
 
 const pages = ["Products", "Pricing", "Blog"];
@@ -37,6 +38,8 @@ export function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const navigate = useNavigate();
 
   return (
     <AppBar position="static" sx={{ px: 2 }}>
@@ -123,6 +126,22 @@ export function ResponsiveAppBar() {
               {page}
             </Button>
           ))}
+          <Button
+            sx={{ my: 2, color: "white", display: "block" }}
+            onClick={() => {
+              navigate({ to: "/demo1" });
+            }}
+          >
+            Demo1
+          </Button>
+          <Button
+            sx={{ my: 2, color: "white", display: "block" }}
+            onClick={() => {
+              navigate({ to: "/demo2" });
+            }}
+          >
+            Demo2
+          </Button>
         </Box>
         <Box sx={{ flexGrow: 0 }}>
           <Tooltip title="Open settings">
